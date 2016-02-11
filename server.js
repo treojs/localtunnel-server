@@ -7,7 +7,7 @@ var debug = require('debug')('localtunnel-server');
 var http_proxy = require('http-proxy');
 
 var proxy = http_proxy.createProxyServer({
-    target: 'http://localtunnel.github.io'
+    target: 'http://treojs.github.io'
 });
 
 proxy.on('error', function(err) {
@@ -17,8 +17,8 @@ proxy.on('error', function(err) {
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
     // rewrite the request so it hits the correct url on github
     // also make sure host header is what we expect
-    proxyReq.path = '/www' + proxyReq.path;
-    proxyReq.setHeader('host', 'localtunnel.github.io');
+    proxyReq.path = '/treojs.com' + proxyReq.path;
+    proxyReq.setHeader('host', 'treojs.github.io');
 });
 
 var Proxy = require('./proxy');
