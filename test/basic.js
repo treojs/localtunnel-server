@@ -34,7 +34,7 @@ test('landing page', function(done) {
         });
 
         res.on('end', function() {
-            assert(body.indexOf('<title>Localtunnel ~ Expose yourself to the world</title>') > 0);
+            assert(body.indexOf('<title>Page Redirection ...</title>') > 0);
             done();
         });
     });
@@ -126,7 +126,7 @@ test('request domain that is too long', function(done) {
 
     localtunnel(test._fake_port, opt, function(err, tunnel) {
         assert(err);
-        assert.equal(err.message, 'Invalid subdomain. Subdomains must be lowercase and between 4 and 20 alphanumeric characters.');
+        assert.equal(err.message, 'Invalid subdomain. Subdomains must be lowercase and between 3 and 20 alphanumeric characters.');
         done();
     });
 });
@@ -139,7 +139,7 @@ test('request uppercase domain', function(done) {
 
     localtunnel(test._fake_port, opt, function(err, tunnel) {
         assert(err);
-        assert.equal(err.message, 'Invalid subdomain. Subdomains must be lowercase and between 4 and 20 alphanumeric characters.');
+        assert.equal(err.message, 'Invalid subdomain. Subdomains must be lowercase and between 3 and 20 alphanumeric characters.');
         done();
     });
 });

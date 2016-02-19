@@ -45,7 +45,7 @@ test('set up localtunnel client', function(done) {
     });
 });
 
-test('test websocket server request', function(done) {
+test.skip('test websocket server request', function(done) {
     var hostname = url.parse(test._fake_url).hostname;
     var ws = new WebSocket('http://localhost:' + lt_server_port, {
         headers: {
